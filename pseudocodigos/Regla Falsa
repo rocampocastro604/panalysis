@@ -1,0 +1,51 @@
+Regla Falsa
+Pseudocodigo
+
+INICIO
+Leer Xi, Xs, tol, n
+Yi= f(Xi)
+Ys = f(Xs)
+Si Yi=0 Entonces
+	Muestre (Xi + 'es Raiz')
+Sino
+	Si Ys = 0 Entonces
+		Muestre (Xs + 'es Raiz')
+	Sino
+		Si Ys * Yi < 0 Entonces
+			Xm = Xi - ((Yi*(Xs-Xi))/(Ys-Yi))
+			Contador = 1
+			Ym = f(Xm)
+			Error = tol + 1
+
+			Mientras Error > tol & Ym != 0 & Contador < n Hacer
+
+				Si Yi*Ym<0 Entonces
+					Xs = Xm
+					Ys = Ym
+				Sino
+					Xi = Xm
+					Yi = Ym
+				FinSi
+
+				Xtemp = Xm
+				Xm = Xi - ((Yi*(Xs-Xi))/(Ys-Yi))
+				Ym = f(Xm)
+				Error = Abs(Xm-Xtemp)
+				Contador = Contador + 1
+			Fin Mientras
+
+			Si Ym = 0 Entonces
+				Muestre (Xm + 'es Raiz'
+			Sino
+				Si Error < tol Entonces
+					Muestre (Xm + 'se aproxima a una raiz con tolerancia' + tol)
+				Sino
+					Muestre ('Fracaso en ' + n + 'iteraciones')
+				FinSi
+			FinSi	
+		Sino
+			Muestre ('Intervalo NO valido')
+		FinSi
+	FinSi
+FinSi	
+FIN

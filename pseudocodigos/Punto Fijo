@@ -1,0 +1,26 @@
+Punto Fijo
+Pseudocodigo
+
+INICIO
+Leer Xo, tol, n
+Yo= f(Xo)
+Contador = 0
+Error  = tol + 1
+Mientras Yo != 0 & Contador < n & Error > tol Hacer
+
+		Xn = g(Xo)
+		Yo = f(Xn)
+		Error = abs((Xn - Xo)/Xn)
+		Contador = Contador + 1
+	Fin Mientras
+
+	Si Yo = 0 Entonces
+		Muestre Xo + 'es Raiz')
+	Sino
+		Si Error < tol Entonces
+			Muestre (Xm + 'se aproxima a una raiz con tolerancia' + tol)
+		Sino
+			Muestre ('Fracaso en ' + n + 'iteraciones')
+		FinSi
+	FinSi
+FIN

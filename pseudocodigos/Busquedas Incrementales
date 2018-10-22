@@ -1,0 +1,33 @@
+Busquedas Incrementales
+Pseudocodigo
+
+INICIO
+Leer Xo, delta, n
+Yo= f(Xo)
+Si Yo=0 Entonces
+	Muestre 'Xo es Raiz'
+Sino
+	X1 = Xo + n
+	Contador = 1
+	Y1 = f(X1)
+
+	Mientras Yo*Y1>0 & Contador < n Hacer
+
+		Xo = X1
+		Yo = Y1
+		X1 = Xo + delta
+		Y1 =f(X1)
+		Contador = Contador + 1
+	Fin Mientras
+
+	Si Y1 = 0 Entonces
+		Muestre (Xo + 'es Raiz')
+	Sino
+		Si Yo*Y1 < 0 Entonces
+			Muestre ('Hay una Raiz entre Xo y X1')
+		Sino
+			Muestre ('Fracaso en ' + n + 'iteraciones')
+		FinSi
+	FinSi
+FinSi
+FIN

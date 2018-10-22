@@ -1,0 +1,29 @@
+Newton
+Pseudocodigo
+
+INICIO
+Leer Xo, tol, n
+Yo= f(Xo)
+Contador = 0
+Error  = tol + 1
+
+Mientras Yo != 0 & Contador < n & Error > tol Hacer
+
+		X1 = Xo - (Yo/Do)
+		Yo = f(X1)
+		Do = f'(X1)
+		Error = abs((X1 - Xo)/X1)
+		X0 = X1
+		Contador = Contador + 1
+	Fin Mientras
+
+	Si Yo = 0 Entonces
+		Muestre (Xo + 'es Raiz')
+	Sino
+		Si Error < tol Entonces
+			Muestre (Xo + 'se aproxima a una raiz con tolerancia' + tol)
+		Sino
+			Muestre ('Fracaso en ' + n + 'iteraciones')
+		FinSi
+	FinSi
+FIN

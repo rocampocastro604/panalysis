@@ -1,0 +1,34 @@
+Secante
+Pseudocodigo
+
+INICIO
+Leer Xo, tol, n
+Yo= f(Xo)
+Si Yo = 0 Entonces
+	Muestre (Xo + 'es Raiz')
+Sino
+	Y1 = f(X1)
+	Contador = 0
+	Error  = tol + 1
+	Mientras Yo != 0 & Contador < n & Error > tol Hacer
+
+		X2 = X1 - ((Y1*(X1-Xo))/Den)
+		Error = abs((X2 - X1)/X2)
+		Xo = X1
+		Yo = Y1
+		X1 = X2
+		Y1 = f(X1)
+		Den = Y1 - Yo
+		Contador = Contador + 1
+	Fin Mientras
+
+	Si Yo = 0 Entonces
+		Muestre (Xo + 'es Raiz')
+	Sino
+		Si Error < tol Entonces
+			Muestre (X1 + 'se aproxima a una raiz con tolerancia' + tol)
+		Sino
+			Muestre ('Fracaso en ' + n + 'iteraciones')
+		FinSi
+	FinSi
+FIN
