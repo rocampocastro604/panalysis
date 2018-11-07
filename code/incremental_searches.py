@@ -1,30 +1,25 @@
-def incremental_searches(): 
-    function = input("Type a function to find its roots: ")
-    xo = float(input("Type an initial value: "))
-    delta = float(input("Type a DELTA value: "))
-    it = 100
-    yo = replace(x in function with xo)
-    #yo = function(xo)
+#NOT WORKING
+def same_sign(a, b):
+    return a*b > 0
 
-    if yo == 0:
-        print(xo + " is a root")
-    else:
-        x1 = delta + xo
-        contador = 1
-        y1 = function(x1)
+def incremental_searches(f, value, delta): 
+    xnew = value + delta
+    #assert not same_sign(f(value), f(xnew))
 
-        while (yo*y1 > 0) & (contador<iter):
-            xo = x1
-            yo = y1
-            x1 = xo + delta
-            y1 = function(x1)
-            contador = contador + 1
-        
-    if y1 == 0:
-        print("Root in: " + x0)
-    elif yo *y1 < 0:
-        print("Its a root around: " + x0 + "and" + x1)
-    else:
-        print("MAX Iterations")
+    for i in range(54):
+        if same_sign:
+            value = xnew
+            xnew = value + delta
+        else:
+            print("["+ value , xnew + "]")
+        return xnew 
+   
+def f(x):
+    return -26 + 85*x -95 * x**2 + 44*x**3 + x**5
+    #return function    
+
+def main():    
+    x = incremental_searches(f, 0.4, 0.1)
+    print(x, f(x))
     
-incremental_searches()
+main()
