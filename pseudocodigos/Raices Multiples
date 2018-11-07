@@ -1,34 +1,34 @@
-Raices Multiples
-Pseudocodigo
+Multiple Roots
+Pseudocode
 
-INICIO
-Leer Xo, tol, n
+START
+Read Xo, tol, n
 Yo= f(Xo)
-Do = f'(Xo)
-Dos = f''(Xo)
-Deno = Do^2 - (Yo * Dos)
-Contador = 0
+Derivate1 = f'(Xo)
+Derivate2 = f''(Xo)
+Denominaror = Do^2 - (Yo * Dos)
+Cont = 0
 Error  = tol + 1
 
-Mientras Yo != 0 & Contador < n & Error > tol Hacer
+While Yo != 0 & Cont < n & Error > tol Do
 
 		X1 = Xo - ((Yo*Do)/Demo)
 		Yo = f(X1)
-		Do = f'(X1)
-		Dos = f''(X1)
+		Derivate1 = f'(X1)
+		Derivate2 = f''(X1)
 		Error = abs((Xn - Xo)/Xn)
-		Contador = Contador + 1
-		Deno = Do^2 - (Yo * Dos)
+		Cont = Cont + 1
+		Denominator = Derivate1^2 - (Yo * Derivate2)
 		Xo = X1
-	Fin Mientras
+	End While
 
-	Si Yo = 0 Entonces
-		Muestre (Xo + 'es Raiz')
-	Sino
-		Si Error < tol Entonces
-			Muestre (Xm + 'se aproxima a una raiz con tolerancia' + tol)
-		Sino
-			Muestre ('Fracaso en ' + n + 'iteraciones')
-		FinSi
-	FinSi
-FIN
+	If Yo = 0 Then
+		Print (Xo + 'it is a Root')
+	If else
+		If Error < tol Then
+			Print (Xm + 'gets close to a root with tolerance' + tol)
+		If else
+			Print ('Failure in ' + n + 'iterations')
+		EndIf
+	EndIf
+END
