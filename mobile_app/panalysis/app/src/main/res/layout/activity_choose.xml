@@ -22,9 +22,9 @@
         android:id="@+id/b_onevar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/b_numint"
-        android:layout_alignStart="@+id/b_interpol"
-        android:layout_marginBottom="51dp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="82dp"
         android:text="One Variable" />
 
     <Button
