@@ -15,7 +15,7 @@ np.set_printoptions(suppress=True)
 style.use('fivethirtyeight')
 
 rl = LinearRegression(n_jobs=100)
-data = pd.read_csv('BitcoinCSV.csv', header=0)
+data = pd.read_csv('Bitcoin.csv', header=0)
 x = data['DateI']
 y = data['Close Price']
 b = 0.0
@@ -24,7 +24,7 @@ X = x[:, np.newaxis]
 Y = y[:, np.newaxis]
 cs = CubicSpline(x, y)
 n = len(X)
-u = 4 #grado del polinomio
+u = 5 #grado del polinomio
 sx = [0] * (n*2)
 a = [0] * u
 sy = 0
@@ -60,11 +60,6 @@ for i in range(n):
     sy = sy + Y[i]
 
 
-
-
-
-
-
 for t in range(u):
     c[t] = syx[t]
 
@@ -85,9 +80,6 @@ for j in range(u + 1):
     for i in range(u):
         if MN[i, j] == 0:
             MN[i, j] = c[i]
-
-
-
 
 
 for k in range(u):
@@ -142,7 +134,7 @@ fig = plt.figure(figsize=(8, 7))
 print("el valor de r^2; ", r2_score(y, ye))
 plt.scatter(x, y, color='blue')
 # plt.scatter(X_number, X_predict, color='green')
-#plt.plot(x, ye)
+plt.plot(x, ye)
 #plt.plot(xn, f(xn), color='green')
 plt.title('Bitcoin over a period of 5 months', fontsize=16)
 plt.xlabel('Date', fontsize=16)
