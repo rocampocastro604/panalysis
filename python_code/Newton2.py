@@ -23,9 +23,9 @@ def diferencias_divididas(x, lx, ly):
 
 print("NEWTON WITH DIVIDED DIFFERENCES")
 start_time = time.time()
-data = pd.read_csv("Example.csv", header=0)
-lx = data["DataX"]
-ly = data["DataY"]
+data = pd.read_csv("Temperature.csv", header=0)
+lx = data["Year"]
+ly = data["Temperature"]
 X = lx[:, np.newaxis]
 Y = ly[:, np.newaxis]
 n = 500
@@ -44,8 +44,8 @@ x = 1.5
 y = diferencias_divididas(x, lx, ly)
 
 elapsed_time = time.time() - start_time
-print(elapsed_time)
-print(y)
+print("It took ",elapsed_time, " Seconds")
+print("The y value for the entered x is: ", y)
 plt.scatter(x, y, s=200, color='green')
 plt.scatter(lx, ly, color='blue')
 plt.plot(xe, ye, color='royalblue')

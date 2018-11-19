@@ -5,6 +5,7 @@ from matplotlib import style
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from scipy import *
+import time
 #GUI
 #from tkinter import *
 
@@ -238,32 +239,50 @@ def linear_regression(file_name, axisx, axisy):
 
 def newton_dd(file_name, axisx, axisy):
 	
-	def diferencias_divididas(x, lx, ly):
+	def divdif(x, lx, ly):
 		y = 0
-		for i in range(len(lx)-1):
-			if x >= lx[i] and x <= lx[i+1]:
-				y = (ly[i+1] - ly[i]) / (lx[i+1]-lx[i]) * (x - lx[i]) + ly[i]
+		for i in range(len(lx) - 1):
+			if x >= lx[i] and x <= lx[i + 1]:
+				y = (ly[i + 1] - ly[i]) / (lx[i + 1] - lx[i]) * (x - lx[i]) + ly[i]
 		return y
-
-   
-	def main_ndd():
-		x = float(input("The value to interpolate: "))
+	
+	def main_dd():
+		print("NEWTON WITH DIVIDED DIFFERENCES")
+		start_time = time.time()
 		data = pd.read_csv(file_name, header=0)
 		lx = data[axisx]
 		ly = data[axisy]
-		#lx = list(map(float, input("Lista de valores de x: ").split()))
-		#ly = list(map(float, input("Lista de valores de y: ").split()))
-		y = diferencias_divididas(x, lx, ly)
-		print("The result is: ", y)
-		
+		X = lx[:, np.newaxis]
+		Y = ly[:, np.newaxis]
+		n = 500
+		ye = [0] * (n+1)
+		xe = [0] * (n+1)
+		xi = X[0]
+		xf = X[-1]
+		m = (xf - xi)/n
+		for i in range(n+1):
+			xe[i] = xi
+			xi = xi + m
+		for i in range(n+1):
+			ye[i] = divdif(xe[i], lx, ly)
+
+		x = float(input("The value to interpolate: "))
+		y = divdif(x, lx, ly)
+
+		elapsed_time = time.time() - start_time
+		print("It took ",elapsed_time, " Seconds")
+		print("The y value for the entered x is: ", y)
+		plt.scatter(x, y, s=200, color='green')
 		plt.scatter(lx, ly, color='blue')
-		plt.plot(lx, ly, color='red')
+		plt.plot(xe, ye, color='royalblue')
+		# plt.scatter(x, y, s=200, color='green')
 		plt.show()
-		input("Press any key to quit")
-	main_ndd()
+	main_dd()
+
 
 def lagrange(file_name, axisx, axisy):
-	def lagrange(x, lx, ly):
+	
+	def lagrange_son(x, lx, ly):
 		y = 0
 		for i in range(len(lx)):
 			L = 1
@@ -275,25 +294,40 @@ def lagrange(file_name, axisx, axisy):
 
 
 	def main_lg():
-		print("////////LAGRANGE METHOD////////")
-		x = float(input("The value to interpolate: "))
+		print("LAGRANGE")
+		start_time = time.time()
 		data = pd.read_csv(file_name, header=0)
 		lx = data[axisx]
 		ly = data[axisy]
+		X = lx[:, np.newaxis]
+		Y = ly[:, np.newaxis]
+		n = 500
+		ye = [0] * (n+1)
+		xe = [0] * (n+1)
+		xi = X[0]
+		xf = X[-1]
+		m = (xf - xi)/n
+		for i in range(n+1):
+			xe[i] = xi
+			xi = xi + m
+		for i in range(n+1):
+			ye[i] = lagrange_son(xe[i], lx, ly)
 
-		#lx = list(map(float, input("Lista de valores de x: ").split()))
-		#ly = list(map(float, input("Lista de valores de y: ").split()))
-		y = lagrange(x, lx, ly)
-		print("The result is: ", y)
+		x = float(input("The value to interpolate: "))
+		y = lagrange_son(x, lx, ly)
 
+		elapsed_time = time.time() - start_time
+		print("It took ",elapsed_time, " Seconds")
+		print("The y value for the entered x is: ", y)
+		plt.scatter(x, y, s=200, color='green')
 		plt.scatter(lx, ly, color='blue')
-		plt.plot(lx, ly, color='red')
+		plt.plot(xe, ye, color='royalblue')
+		# plt.scatter(x, y, s=200, color='green')
 		plt.show()
-		input("Press any key to quit")
 	
 	main_lg()
 
-main()
+lagrange("Temperature.csv", "Year", "Temperature")
 
 # Tkinter GUI
 # def onClick():
