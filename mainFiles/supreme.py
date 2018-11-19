@@ -26,22 +26,26 @@ def main():
 
 	
 	if(lr_pr == 1):
+		print("//////////LINEAR REGRESSION//////////")
 		the_file=str(input("Choose a Dataset: ")) + ".csv"
 		the_axisx=str(input("Choose a variable for the X axis: "))
 		the_axisy=str(input("Choose a variable for the Y axis: "))
 		linear_regression(the_file, the_axisx, the_axisy)
 	elif(lr_pr == 2):
+		print("//////////POLYNOMIAL REGRESSION//////////")
 		the_file=str(input("Choose a Dataset: ")) + ".csv"
 		the_axisx=str(input("Choose a variable for the X axis: "))
 		the_axisy=str(input("Choose a variable for the Y axis: "))
 		the_grade=int(input("Choose a grade for the polynomn: "))
 		polynomial_regression(the_file, the_axisx, the_axisy, the_grade)
 	elif(lr_pr == 3):
+		print("//////////NEWTON DIVIDED DIFERENCES//////////")
 		the_file=str(input("Choose a Dataset: ")) + ".csv"
 		the_axisx=str(input("Choose a variable for the X axis: "))
 		the_axisy=str(input("Choose a variable for the Y axis: "))
 		newton_dd(the_file, the_axisx, the_axisy)
 	elif(lr_pr == 4):
+		print("//////////LAGRANGE METHOD//////////")
 		the_file=str(input("Choose a Dataset: ")) + ".csv"
 		the_axisx=str(input("Choose a variable for the X axis: "))
 		the_axisy=str(input("Choose a variable for the Y axis: "))
@@ -53,7 +57,7 @@ def main():
 		newton_dd(the_file, the_axisx, the_axisy)
 		lagrange(the_file, the_axisx, the_axisy)
 	else:
-		print("Not defined")
+		print("Not defined option")
 
 
 def polynomial_regression(file_name, axisx, axisy, grade):
@@ -247,7 +251,6 @@ def newton_dd(file_name, axisx, axisy):
 		return y
 	
 	def main_dd():
-		print("NEWTON WITH DIVIDED DIFFERENCES")
 		start_time = time.time()
 		data = pd.read_csv(file_name, header=0)
 		lx = data[axisx]
@@ -275,6 +278,9 @@ def newton_dd(file_name, axisx, axisy):
 		plt.scatter(x, y, s=200, color='green')
 		plt.scatter(lx, ly, color='blue')
 		plt.plot(xe, ye, color='royalblue')
+		plt.title('Newton Divided Differences', fontsize=18)
+    	plt.xlabel(axisx, fontsize=16)
+    	plt.ylabel(axisy, fontsize=16)
 		# plt.scatter(x, y, s=200, color='green')
 		plt.show()
 	main_dd()
@@ -294,7 +300,6 @@ def lagrange(file_name, axisx, axisy):
 
 
 	def main_lg():
-		print("LAGRANGE")
 		start_time = time.time()
 		data = pd.read_csv(file_name, header=0)
 		lx = data[axisx]
@@ -322,6 +327,9 @@ def lagrange(file_name, axisx, axisy):
 		plt.scatter(x, y, s=200, color='green')
 		plt.scatter(lx, ly, color='blue')
 		plt.plot(xe, ye, color='royalblue')
+		plt.title('Lagrange Method', fontsize=18)
+    	plt.xlabel(axisx, fontsize=16)
+    	plt.ylabel(axisy, fontsize=16)
 		# plt.scatter(x, y, s=200, color='green')
 		plt.show()
 	
@@ -383,5 +391,4 @@ main()
 # submit_btn.grid(row=10, column=2,sticky=W)
 
 # window.mainloop()
-
 
