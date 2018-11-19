@@ -1,0 +1,29 @@
+Read matrz A, vector b
+
+n ← number of rows of the matriz
+
+for k=1 until (n-1) do
+	if A(k,k)=0 then
+		show: this method fails
+		end gauss
+	end if
+	 for i=(k+1) until n do
+	 	M← A(i,k) / A(k,k)
+	 	 for j=k until n do
+	 	 	A(i,j) ←A(i,j) – M * A(k,j)
+	 	 End for
+		 b(i)=b(i)-M*b(k)
+	 end for
+end for
+X(n) ← b(n)/A(n,n)
+for i=(n-1) until 1 do
+	c=0
+	for j=(i+1) until n do
+		c ← c + A(i,j) * X(j)
+	end for
+X(i) ← (b(i)-c) / A(i,i)
+End for
+
+Show: The vector solution of the system is: X
+
+end
