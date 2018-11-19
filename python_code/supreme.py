@@ -71,7 +71,7 @@ def polynomial_regression(file_name, axisx, axisy, grade):
 	Y = y[:, np.newaxis]
 	#cs = CubicSpline(x, y)
 	n = len(X)
-	u = grade #grado del polinomio
+	u = grade #polynomial grade
 	sx = [0] * (n*2)
 	a = [0] * u
 	sy = 0
@@ -178,7 +178,7 @@ def polynomial_regression(file_name, axisx, axisy, grade):
 
 
 	fig = plt.figure(figsize=(8, 7))
-	print("el valor de r^2: ", r2_score(y, ye))
+	print("r^2 value is: ", r2_score(y, ye))
 	plt.scatter(x, y, color='blue')
 	# plt.scatter(X_number, X_predict, color='green')
 	plt.plot(x, ye)
@@ -247,7 +247,7 @@ def newton_dd(file_name, axisx, axisy):
 
    
 	def main_ndd():
-		x = float(input("Valor a interpolar: "))
+		x = float(input("The value to interpolate: "))
 		data = pd.read_csv(file_name, header=0)
 		lx = data[axisx]
 		ly = data[axisy]
@@ -276,7 +276,7 @@ def lagrange(file_name, axisx, axisy):
 
 	def main_lg():
 		print("////////LAGRANGE METHOD////////")
-		x = float(input("Valor a interpolar: "))
+		x = float(input("The value to interpolate: "))
 		data = pd.read_csv(file_name, header=0)
 		lx = data[axisx]
 		ly = data[axisy]
