@@ -1,0 +1,39 @@
+Read matrz A, vector b
+
+n ← number of rows of the matriz
+
+for k = 1  until n do
+	spar ← 0
+
+for p = 1 until k-1 do
+		spar ← spar +  L(k,p)*U(p,k)
+	end for
+
+u(k,k) ← (A(k,k)-spar) / (l(k,k))
+
+for i = k + 1 until n do
+		spar ← 0
+
+for r = 1 until k -1 do
+			spar ← spar + L(i,r) * U(r,k)
+		end for
+
+l(i,k)= (A(i,k) - spar)/ U(k,k)
+
+end for
+
+	for j = k + 1 until n do
+		spar ← 0
+		for s = 1 until k-1 do
+			spar ← spar +  L(k,s)*U(s,j)
+		end for
+		U(k,j) ← (A(k,j) - spar) / L(k,k)
+	end for
+end for
+
+To solve system Lz=b
+To solve system UX=z
+
+Show: The vector solution of the system is: X
+
+end

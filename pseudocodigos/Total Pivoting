@@ -1,0 +1,53 @@
+b = aumentar(A, b)
+marcas = from 1 to n, increment 1
+for k from 1 to n-1
+    mayor = 0
+    row = k
+    column = k
+    for p from k to n
+        for r from k to n
+            if |Abpr | > mayor
+                mayor = |Abpr|
+                row = p
+                column = r
+            end
+        end
+    end
+if mayor = 0 then
+    return “the system hasn’t unique solution”
+else
+    if row ≠ k then
+        for m from k to n+1
+            aux = Abkm
+            Abkm= Abrow m
+            Abrow m= aux
+        end
+    end
+    if colum ≠ k then
+        for f from 1 to n
+            aux = Abfk
+            Abfk = Abf column
+            Abf column = aux
+        end
+        aux2 = marcas k
+        marcas k = marcas column
+        marcas column = aux2
+    end
+    for i from k+1 to n
+        Mik= Abik/Abkk
+        for j from k to n+1
+            Abij= Abij – Mik*Abkj
+        end
+    end
+end
+x(marcas n)=Abnn + 1/Abnn
+    for i from n-1 to 1, increment -1
+    acum = 0;
+    for p from i + 1 to n
+        acum = acum + (Abip)*x(marcas p)
+    end
+x(marcas i) = (Ab I n + 1 - acum)/Ab i i
+end
+show X
+
+end

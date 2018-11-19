@@ -1,0 +1,48 @@
+Read matrz A, vector B, aproximation xo, and tolerance
+
+n ← number of rows of the matriz
+
+for i=1 until n do
+	for j=1 until n do
+		L(i,j) ← -A(i,j)/A(i,i)
+
+		if i<=j then
+			L(i,j) ← 0
+		End if
+end for
+end for
+
+for i=1 until n do
+	for j=1 until n do
+		U(i,j) ←  -A(i,j)/A(i,i)
+			if i>=j do
+				U(i,j) ← 0;
+			End if
+	end for
+end for
+
+for i=1 n do
+	C(i,1) ←  b(i,1)/A(i,i);
+end for
+
+x ←  (I-L)-1*U*xo+(I-L)-1 *C
+xo ← x
+error ← tolerance +1
+iterations ←0
+
+while error>= tolerance and iterations <=2000
+	x ←  (I-L)-1*U*xo+(I-L)-1 *C
+	error← ||x-xo||
+	xo ← x
+	iteration ← iterations +1
+
+end while
+
+if iterations==2000
+show 'The method has failed after 2000 iterations);
+
+else if error<=tolerance
+show 'The vector solution with a tolerance is: x
+end if
+
+end
