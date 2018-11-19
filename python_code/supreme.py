@@ -327,7 +327,7 @@ def lagrange(file_name, axisx, axisy):
 	
 	main_lg()
 
-lagrange("Temperature.csv", "Year", "Temperature")
+main()
 
 # Tkinter GUI
 # def onClick():
