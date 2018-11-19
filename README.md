@@ -32,10 +32,10 @@
 <td>Analyst, Coordinator</td>
 </tr>
 </tbody>
-</table><h2 id="python_code">Python_code</h2>
-<p>The python_code file is the main file, this file contains the python codes implemented for the project, it also contains the dataset samples we used to proof and verify the code we used.</p>
+</table><h2 id="project-code">Project Code</h2>
+<p>The “mainFiles” file is the main file, this file contains the python codes implemented for the project, it also contains the dataset samples we used to proof and verify the code we used.</p>
 <h2 id="code">Code</h2>
-<p>The code file contains the implementation code in python language for each method seen in numerical analysis asignature.</p>
+<p>The “Code” file contains the implementation code in python language for each method seen in numerical analysis asignature.</p>
 <h2 id="pseudocodigos">Pseudocodigos</h2>
-<p>Inside the Pseudocodigos file, you can see the pseudocode implemented for each method seen in the “Code” file.</p>
+<p>Inside the “Pseudocodigos” file, you can see the pseudocode implemented for each method seen in the “Code” file.</p>
 
