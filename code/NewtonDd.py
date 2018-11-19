@@ -1,5 +1,3 @@
-
-
 def diferencias_divididas(x, lx, ly):
     """Metodo numerico de dfierencias dividadas 
     
@@ -18,8 +16,8 @@ def diferencias_divididas(x, lx, ly):
 def main():
     print("METODO DE DIFERENCIAS DIVIDIDAS")
     x = float(input("Valor a interpolar: "))
-    lx = map(float, input("Lista de valores de x: ").split())
-    ly = map(float, input("Lista de valores de y: ").split())
+    lx = list(map(float, input("Lista de valores de x: ").split()))
+    ly = list(map(float, input("Lista de valores de y: ").split()))
     y = diferencias_divididas(x, lx, ly)
     print("El resultado es: ", y)
     input("Presione una tecla para finalizar")
