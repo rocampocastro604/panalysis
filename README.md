@@ -29,7 +29,7 @@
 <tr>
 <td>Daniel Hernandez Stalhuth</td>
 <td><a href="mailto:dehernands@eafit.edu.co">dehernands@eafit.edu.co</a></td>
-<td></td>
+<td>Analyst, Coordinator</td>
 </tr>
 </tbody>
 </table><h2 id="python_code">Python_code</h2>
