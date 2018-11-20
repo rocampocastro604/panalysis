@@ -1,0 +1,29 @@
+Entrada: Número de datos n, datos (x; f(x)) y el valor para el cual se desea
+interpolar xint
+variable: Matriz T(n; n)
+PROGRAMA PRINCIPAL
+Paso 1: Ejecutar tabla de diferencias divididas
+Paso 2: fxint = f(x(0))
+Paso 3: Hacer i = 0
+Paso 4: Mientras que i < n – 1 hacer
+                Paso 5: Hacer p = 1
+                Paso 6: j = 0
+                Paso 7: j ≤i hacer
+                               Paso 8: Hacer p = p *(xint-x(j))
+                                               Paso 9: Hacer j = j + 1
+                Paso 10: Hacer fxint = fxint + T(i, i) * p
+                PAso 11: Hacer i = i + 1
+                                Paso 12: Imprimir fxint
+                TABLA DE DIFERENCIAS DIVIDIDAS
+                Paso 1: m = n-1
+Paso 2: Hacer i = 0
+Paso 3: Mientras que i ≤ m – 1 hacer
+                Paso 4: Hacer T(i, 0) = (f(x(i+1)-f(x(i)))/x(i+1)-x(i)
+                Paso 5: i = i + 1
+                Paso 6: j = 1
+Paso 7: Mientras que j ≤ m – 1 hacer
+               Paso 8: Hacer i = j
+Paso 9: Mientras i ≤ m – 1 hacer
+               Paso 10: Hacer T(i; j) = ( T(i,j-1)- T(i-1,i-1,j-1) )/( x(i+1)-x(i-j) )
+               Paso 11: Hacer i = i + 1
+               Paso 12: Hacer j = j + 1
